@@ -11,7 +11,7 @@ const GridRow: React.FC<Props> = ({ rowNumber }) => {
       return (
         <div>
           {arrayOfSize(rowWidth).map((_: number, index: number) => (
-            <Square xLocation={rowNumber} yLocation={index} />
+            <Square xLocation={index} yLocation={rowNumber} />
           ))}
         </div>
       );

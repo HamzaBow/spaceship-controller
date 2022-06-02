@@ -8,7 +8,7 @@ const Grid:React.FC<{}> = () => {
   return (
     <>
       {arrayOfSize(gridHeight).map((_: number, index: number) => (
-        <GridRow rowNumber={index}/>
+        <GridRow rowNumber={gridHeight - (index + 1)}/>
       ))}
     </>
   );
