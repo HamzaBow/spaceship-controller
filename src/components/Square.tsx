@@ -1,15 +1,22 @@
+import { CSSProperties } from "react";
 
-const Square = () => {
+interface Props {
+  xLocation: number;
+  yLocation: number;
+}
+const Square: React.FC<Props> = ({ xLocation, yLocation}) => {
   const edgeSize = "50px";
-  const squareStyle = {
+  const squareStyle: CSSProperties = {
     width: edgeSize,
     height: edgeSize,
     backgroundColor: "gray",
-    marginLeft: "3px",
-    display: "inline-block"
+    margin: "1px",
+    display: "inline-block",
   }
   return (
-    <div style={squareStyle}></div>
+    <div style={squareStyle}>
+       {xLocation + ", " + yLocation}
+    </div>
   )
 }
 

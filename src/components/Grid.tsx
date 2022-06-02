@@ -1,16 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { arrayOfSize } from "../utils";
 import GridRow from "./GridRow";
-interface Props {
-  width: number;
-  height: number;
-}
 
-const Grid:React.FC<Props> = ({ width, height}) => {
+const Grid:React.FC<{}> = () => {
+  const gridHeight = useSelector((state: any) => state.motion.gridHeight)
   return (
     <>
-      {arrayOfSize(height).map((_: number, i: number) => (
-        <GridRow width={width} />
+      {arrayOfSize(gridHeight).map((_: number, index: number) => (
+        <GridRow rowNumber={index}/>
       ))}
     </>
   );

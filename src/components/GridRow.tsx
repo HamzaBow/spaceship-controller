@@ -1,15 +1,17 @@
 import React from 'react'
 import Square from './Square';
 import { arrayOfSize } from "../utils";
+import { useSelector } from 'react-redux';
 
 interface Props {
-  width: number;
+  rowNumber: number;
 }
-const GridRow: React.FC<Props> = ({ width }) => {
+const GridRow: React.FC<Props> = ({ rowNumber }) => {
+  const rowWidth = useSelector((state: any) => state.motion.gridWidth)
       return (
         <div>
-          {arrayOfSize(width).map((__: number, j: number) => (
-            <Square />
+          {arrayOfSize(rowWidth).map((_: number, index: number) => (
+            <Square xLocation={rowNumber} yLocation={index} />
           ))}
         </div>
       );
