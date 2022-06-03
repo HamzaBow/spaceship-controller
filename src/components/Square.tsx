@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { useSelector } from "react-redux";
+import { RootState } from "../app/store";
 import { Direction } from "../motionSlice";
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
 }
 const Square: React.FC<Props> = ({ xLocation, yLocation}) => {
 
-  const [x, y, direction] = useSelector((state: any) => [state.motion.x, state.motion.y, state.motion.direction]);
+  const [x, y, direction] = useSelector((state: RootState) => [state.motion.x, state.motion.y, state.motion.direction]);
 
   const edgeSize = "50px";
   const squareStyle: CSSProperties = {

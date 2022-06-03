@@ -6,14 +6,14 @@ export enum Direction {
   East="East",
   West="West",
 }
-interface InitialState {
+export interface MotionState {
   gridHeight: number;
   gridWidth: number;
   x: number; // location of spaceship on x axis.
   y: number; // location of spaceship on y axis.
   direction: Direction; // direction that the spaceship is facing. 
 }
-const initialState: InitialState = {
+const initialState: MotionState = {
   gridHeight: 8,
   gridWidth: 8,
   x: 0,
