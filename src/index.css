@@ -6,3 +6,33 @@ body {
   margin: 0;
   height: 100%;
 }
+
+.kbd-info {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.kbd-container {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+kbd {
+  border-radius: 3px;
+  padding: 0 4px;
+  border: 1px solid black;
+  background-color: lightgray;
+  font-size: 12pt;
+  margin: 1px;
+}
+
+@media (prefers-color-scheme: dark) {
+  kbd {
+    border: 1px solid black;
+    background-color: hsl(0, 0%, 22%);
+    color: white;
+  }
+}
