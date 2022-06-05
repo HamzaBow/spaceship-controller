@@ -12,22 +12,25 @@ const KeyboardController = () => {
 useEffect(() => {
 
   const handleKeyboardevent = (event: KeyboardEvent) => {
-    event.preventDefault();
     switch (event.key) {
       case "ArrowUp":
-      case "f":
+        case "f":
+        event.preventDefault();
         dispatch(moveForward());
         break;
       case "ArrowDown":
       case "b":
+        event.preventDefault();
         dispatch(moveBackward());
         break;
       case "ArrowLeft":
       case "l":
+        event.preventDefault();
         dispatch(rotateLeft());
         break;
       case "ArrowRight":
       case "r":
+        event.preventDefault();
         dispatch(rotateRight());
         break;
       default:
