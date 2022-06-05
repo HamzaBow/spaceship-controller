@@ -121,7 +121,8 @@ export const motionSlice = createSlice({
         while(true) {
           x = Math.floor(Math.random() * state.gridWidth)
           y = Math.floor(Math.random() * state.gridHeight)
-          if (obstacleExists(state.obstacles, {x, y})) {
+          if (obstacleExists(state.obstacles, {x, y}) || (state.x === x && state.y === y)) {
+            // dont add obstacle if one is already here or spaceship is at this location
             continue;
           }
           // obstacleLocation not in list of obstacles
