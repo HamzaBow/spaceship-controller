@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store";
-import { Direction } from "../motionSlice";
+import { Direction, Obstacle } from "../motionSlice";
 
 interface Props {
   xLocation: number;
@@ -9,7 +9,12 @@ interface Props {
 }
 const Square: React.FC<Props> = ({ xLocation, yLocation}) => {
 
-  const [x, y, direction] = useSelector((state: RootState) => [state.motion.x, state.motion.y, state.motion.direction]);
+  const [x, y, direction, obstacles] = useSelector((state: RootState) => [
+    state.motion.x,
+    state.motion.y,
+    state.motion.direction,
+    state.motion.obstacles,
+  ]);
 
   const edgeSize = "50px";
   const squareStyle: CSSProperties = {
@@ -38,10 +43,24 @@ const Square: React.FC<Props> = ({ xLocation, yLocation}) => {
     borderRightColor  : direction === Direction.West  ? "white" : "rgba(0, 0, 0, 0)",
     position: "absolute"
   }
+
+  const squareIsObtacle = () => {
+    for (let i = 0; i < (obstacles as Obstacle[]).length; i++) {
+      let obs = (obstacles as Obstacle[])[i]
+      if ((obs.x === xLocation) && (obs.y === yLocation)) {
+        return true
+      }
+    }
+    return false;
+  }
+
   return (
     <div style={squareStyle}>
       { (x === xLocation && y === yLocation) &&
          <div style={spaceshipStyle}></div>
+      }
+      { squareIsObtacle() &&
+        <div>obs</div>
       }
     </div>
   )
