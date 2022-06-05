@@ -19,7 +19,7 @@ export interface MotionState {
   y: number; // location of spaceship on y axis.
   direction: Direction; // direction that the spaceship is facing. 
   obstacles: Obstacle[];
-  foundObstacleLogs: string[];
+  ObstacleEncounterLogs: string[];
 }
 
 const initialState: MotionState = {
@@ -29,7 +29,7 @@ const initialState: MotionState = {
   y: 0,
   direction: Direction.North,
   obstacles: [],
-  foundObstacleLogs: []
+  ObstacleEncounterLogs: []
 }
 
 const modulo = (num: number, threshold: number): number => {
@@ -64,7 +64,7 @@ export const motionSlice = createSlice({
         }
         obstacleHere = obstacleExists(state.obstacles, {x: newLocation.x, y: newLocation.y})
         if (obstacleHere) {
-          state.foundObstacleLogs.push(
+          state.ObstacleEncounterLogs.push(
             `Encountered Obstacle at coordinates (${newLocation.x}, ${newLocation.y}), on ${Date()}`
           );
         }
@@ -95,7 +95,7 @@ export const motionSlice = createSlice({
 
         obstacleHere = obstacleExists(state.obstacles, {x: newLocation.x, y: newLocation.y})
         if (obstacleHere) {
-          state.foundObstacleLogs.push(
+          state.ObstacleEncounterLogs.push(
             `Encountered Obstacle at coordinates (${newLocation.x}, ${newLocation.y})`
           );
         }
