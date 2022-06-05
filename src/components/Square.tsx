@@ -20,7 +20,7 @@ const Square: React.FC<Props> = ({ xLocation, yLocation}) => {
     width: "35px",
     height: "35px",
     borderRadius: "50%",
-    backgroundColor: "brown",
+    backgroundColor: "#252525",
     position: "absolute"
   }
 
