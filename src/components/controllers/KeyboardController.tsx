@@ -12,6 +12,9 @@ const KeyboardController = () => {
 useEffect(() => {
 
   const handleKeyboardevent = (event: KeyboardEvent) => {
+    if (event.ctrlKey || event.altKey) {
+      return
+    }
     switch (event.key) {
       case "ArrowUp":
         case "f":
