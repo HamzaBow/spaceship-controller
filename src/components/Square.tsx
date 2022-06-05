@@ -26,6 +26,15 @@ const Square: React.FC<Props> = ({ xLocation, yLocation}) => {
     justifyContent: "center",
     alignItems: "center",
   }
+
+  const obstacleStyle: CSSProperties = {
+    width: "35px",
+    height: "35px",
+    borderRadius: "50%",
+    backgroundColor: "brown",
+    position: "absolute"
+  }
+
   const spaceshipStyle: CSSProperties = {
     width: "0",
     height: "0",
@@ -60,7 +69,7 @@ const Square: React.FC<Props> = ({ xLocation, yLocation}) => {
          <div style={spaceshipStyle}></div>
       }
       { squareIsObtacle() &&
-        <div>obs</div>
+         <div style={obstacleStyle}></div>
       }
     </div>
   )
