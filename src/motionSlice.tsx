@@ -19,6 +19,7 @@ export interface MotionState {
   y: number; // location of spaceship on y axis.
   direction: Direction; // direction that the spaceship is facing. 
   obstacles: Obstacle[];
+  foundObstacleLogs: string[];
 }
 
 const initialState: MotionState = {
@@ -27,7 +28,8 @@ const initialState: MotionState = {
   x: 0,
   y: 0,
   direction: Direction.North,
-  obstacles: []
+  obstacles: [],
+  foundObstacleLogs: []
 }
 
 const modulo = (num: number, threshold: number): number => {
@@ -42,6 +44,7 @@ export const motionSlice = createSlice({
   reducers: {
     moveForward: (state) => {
       let newLocation = { x: state.x, y: state.y };
+      let obstacleHere = false;
       do {
         switch (state.direction) {
           case Direction.North:
@@ -59,12 +62,19 @@ export const motionSlice = createSlice({
           default:
             throw new Error(`direction not excepted!`)
         }
-      } while (obstacleExists(state.obstacles, {x: newLocation.x, y: newLocation.y}))
+        obstacleHere = obstacleExists(state.obstacles, {x: newLocation.x, y: newLocation.y})
+        if (obstacleHere) {
+          state.foundObstacleLogs.push(
+            `Encountered Obstacle at coordinates (${newLocation.x}, ${newLocation.y})`
+          );
+        }
+      } while (obstacleHere)
       state.x = newLocation.x;
       state.y = newLocation.y;
     },
     moveBackward: (state) => {
       let newLocation = { x: state.x, y: state.y };
+      let obstacleHere = false;
       do {
         switch (state.direction) {
           case Direction.North:
@@ -81,6 +91,13 @@ export const motionSlice = createSlice({
             break;
           default:
             throw new Error(`direction not excepted!`)
+        }
+
+        obstacleHere = obstacleExists(state.obstacles, {x: newLocation.x, y: newLocation.y})
+        if (obstacleHere) {
+          state.foundObstacleLogs.push(
+            `Encountered Obstacle at coordinates (${newLocation.x}, ${newLocation.y})`
+          );
         }
       } while (obstacleExists(state.obstacles, {x: newLocation.x, y: newLocation.y}))
       state.x = newLocation.x;
