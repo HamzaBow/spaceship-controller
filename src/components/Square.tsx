@@ -16,17 +16,6 @@ const Square: React.FC<Props> = ({ xLocation, yLocation}) => {
     state.motion.obstacles,
   ]);
 
-  const edgeSize = "50px";
-  const squareStyle: CSSProperties = {
-    width: edgeSize,
-    height: edgeSize,
-    backgroundColor: "gray",
-    marginLeft: "3px",
-    display: "inline-flex",
-    justifyContent: "center",
-    alignItems: "center",
-  }
-
   const obstacleStyle: CSSProperties = {
     width: "35px",
     height: "35px",
@@ -64,7 +53,7 @@ const Square: React.FC<Props> = ({ xLocation, yLocation}) => {
   }
 
   return (
-    <div style={squareStyle}>
+    <div className="square">
       { (x === xLocation && y === yLocation) &&
          <div style={spaceshipStyle}></div>
       }
