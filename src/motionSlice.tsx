@@ -65,7 +65,7 @@ export const motionSlice = createSlice({
         obstacleHere = obstacleExists(state.obstacles, {x: newLocation.x, y: newLocation.y})
         if (obstacleHere) {
           state.foundObstacleLogs.push(
-            `Encountered Obstacle at coordinates (${newLocation.x}, ${newLocation.y})`
+            `Encountered Obstacle at coordinates (${newLocation.x}, ${newLocation.y}), on ${Date()}`
           );
         }
       } while (obstacleHere)
