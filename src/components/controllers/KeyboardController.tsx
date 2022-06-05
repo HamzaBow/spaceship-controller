@@ -43,7 +43,7 @@ useEffect(() => {
 })
   const dispatch = useDispatch();
   return (
-    <>
+    <div>
     <div className="kbd-info">
       <span>Use keyboard keys </span>
       <div className="kbd-container">
@@ -60,8 +60,9 @@ useEffect(() => {
         <kbd className="kbd-letter">B</kbd>
         <kbd className="kbd-letter">L</kbd>
         <kbd className="kbd-letter">R</kbd>
+      <span>.</span>
       </div>
-    </>
+    </div>
   );
 };
 

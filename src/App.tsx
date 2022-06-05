@@ -9,12 +9,18 @@ import ObstacleReport from './components/ObstacleReport';
 function App() {
   return (
     <div className="App">
-      <h1>Spaceship Controller</h1>
-      <Grid />
-      <ButtonsController />
-      <KeyboardController />
-      <ObstacleController />
-      <ObstacleReport />
+      <div>
+        <KeyboardController />
+        <ButtonsController />
+      </div>
+      <div>
+        <h1>Spaceship Controller</h1>
+        <Grid />
+      </div>
+      <div>
+        <ObstacleController />
+        <ObstacleReport />
+      </div>
     </div>
   );
 }

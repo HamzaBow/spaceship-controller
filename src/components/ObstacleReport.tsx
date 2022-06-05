@@ -7,8 +7,10 @@ const ObstacleReport = () => {
   return (
     <>
     <h3>Obstacle Encouter Logs</h3>
+    <div className='reports'>
     { ObstacleEncounterLogs.map((str) => <pre>{str}</pre>)
     }
+    </div>
     </>
   )
 }

@@ -15,11 +15,14 @@ const ButtonsController = () => {
     gridTemplateColumns: "1fr 1fr 1fr",
   };
   return (
-    <div style={containerStyle}>
-      <button style={{ gridArea: "1/2/2/3" }} onClick={() => dispatch(moveForward())}>Forward</button>
-      <button style={{ gridArea: "2/2/3/3" }} onClick={() => dispatch(moveBackward())}>Backward</button>
-      <button style={{ gridArea: "2/1/3/2" }} onClick={() => dispatch(rotateLeft())}>Rotate left</button>
-      <button style={{ gridArea: "2/3/3/4" }} onClick={() => dispatch(rotateRight())}>Rotate right</button>
+    <div>
+      <p> Or the buttons bellow. </p>
+      <div style={containerStyle}>
+        <button style={{ gridArea: "1/2/2/3", paddingTop: "5px", paddingBottom: "5px" }} onClick={() => dispatch(moveForward())}>Forward</button>
+        <button style={{ gridArea: "2/2/3/3", paddingTop: "5px", paddingBottom: "5px" }} onClick={() => dispatch(moveBackward())}>Backward</button>
+        <button style={{ gridArea: "2/1/3/2", paddingTop: "5px", paddingBottom: "5px" }} onClick={() => dispatch(rotateLeft())}>Rotate left</button>
+        <button style={{ gridArea: "2/3/3/4", paddingTop: "5px", paddingBottom: "5px" }} onClick={() => dispatch(rotateRight())}>Rotate right</button>
+      </div>
     </div>
   )
 }
