@@ -8,7 +8,7 @@ const ObstacleController = () => {
     dispatch(putObstacles())
   }
   return (
-      <button onClick={handleClick}>Generate Random Obstacles</button>
+      <button className='btn-gen-obs' onClick={handleClick}>Generate Random Obstacles</button>
   )
 }
 

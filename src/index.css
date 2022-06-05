@@ -43,3 +43,14 @@ kbd.kbd-letter {
     color: white;
   }
 } */
+
+.btn-gen-obs {
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+.reports {
+  width: 400px;
+  height: 400px;
+  overflow: auto;
+}
