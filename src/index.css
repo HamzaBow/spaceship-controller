@@ -1,5 +1,5 @@
 :root {
-  color-scheme: dark;
+  /* color-scheme: dark; */
 }
 
 body {
@@ -36,10 +36,10 @@ kbd.kbd-letter {
   padding: 3px 6px;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   kbd {
     border: 1px solid black;
     background-color: hsl(0, 0%, 22%);
     color: white;
   }
-}
+} */
