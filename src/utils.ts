@@ -5,10 +5,10 @@ export const arrayOfSize = (n: number) => {
 }
 
 export const obstacleExists = (obstacles: Obstacle[], obstacle: Obstacle) => {
-  obstacles.forEach((obs) => {
-    if ((obs.x === obstacle.y) && (obs.y === obstacle.y)) {
+  for(let i = 0; i < obstacles.length; i++) {
+    if ((obstacles[i].x === obstacle.x) && (obstacles[i].y === obstacle.y)) {
       return true;
     }
-  })
+  }
   return false;
 }
