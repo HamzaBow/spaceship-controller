@@ -11,8 +11,8 @@ const ButtonsController = () => {
   const dispatch = useDispatch();
   const containerStyle: CSSProperties = {
     display: "grid",
-    gridTemplateRows: "1fr 1fr 1fr",
-    gridTemplateColumns: "1fr 1fr",
+    gridTemplateRows: "1fr 1fr",
+    gridTemplateColumns: "1fr 1fr 1fr",
   };
   return (
     <div style={containerStyle}>
