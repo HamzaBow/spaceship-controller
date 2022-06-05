@@ -20,6 +20,10 @@ body {
     grid-template-rows: 1fr 1fr;
 }
 
+.kbd-container kbd {
+  font-size: x-large;
+}
+
 kbd {
   border-radius: 3px;
   padding: 0 4px;
