@@ -43,6 +43,7 @@ useEffect(() => {
 })
   const dispatch = useDispatch();
   return (
+    <>
     <div className="kbd-info">
       <span>Use keyboard keys </span>
       <div className="kbd-container">
@@ -51,8 +52,16 @@ useEffect(() => {
         <kbd style={{ gridArea: "2/1/3/2" }}>←</kbd>
         <kbd style={{ gridArea: "2/3/3/4" }}>→</kbd>
       </div>
-      <span> to controll the spaceship around</span>
+      <span> to controll the spaceship</span>
     </div>
+    <div className="kbd-info">
+      <span>You can also use keyboard keys </span>
+        <kbd className="kbd-letter">F</kbd>
+        <kbd className="kbd-letter">B</kbd>
+        <kbd className="kbd-letter">L</kbd>
+        <kbd className="kbd-letter">R</kbd>
+      </div>
+    </>
   );
 };
 
