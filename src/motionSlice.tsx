@@ -41,22 +41,27 @@ export const motionSlice = createSlice({
   initialState,
   reducers: {
     moveForward: (state) => {
-      switch (state.direction) {
-        case Direction.North:
-          state.y = modulo(state.y + 1, state.gridHeight)
-          break;
-        case Direction.South:
-          state.y = modulo(state.y - 1, state.gridHeight)
-          break;
-        case Direction.East:
-          state.x = modulo(state.x + 1, state.gridWidth)
-          break;
-        case Direction.West:
-          state.x = modulo(state.x - 1, state.gridWidth)
-          break;
-        default:
-          throw new Error(`direction not excepted!`)
-      }
+      let newLocation = { x: state.x, y: state.y };
+      do {
+        switch (state.direction) {
+          case Direction.North:
+            newLocation.y = modulo(newLocation.y + 1, state.gridHeight)
+            break;
+          case Direction.South:
+            newLocation.y = modulo(newLocation.y - 1, state.gridHeight)
+            break;
+          case Direction.East:
+            newLocation.x = modulo(newLocation.x + 1, state.gridWidth)
+            break;
+          case Direction.West:
+            newLocation.x = modulo(newLocation.x - 1, state.gridWidth)
+            break;
+          default:
+            throw new Error(`direction not excepted!`)
+        }
+      } while (obstacleExists(state.obstacles, {x: newLocation.x, y: newLocation.y}))
+      state.x = newLocation.x;
+      state.y = newLocation.y;
     },
     moveBackward: (state) => {
       switch (state.direction) {
