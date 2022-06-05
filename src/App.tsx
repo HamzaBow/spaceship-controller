@@ -3,6 +3,7 @@ import './App.css';
 import Grid from './components/Grid';
 import ButtonsController from './components/controllers/ButtonsController';
 import KeyboardController from './components/controllers/KeyboardController';
+import ObstacleController from './components/controllers/ObstacleController';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Grid />
       <ButtonsController />
       <KeyboardController />
+      <ObstacleController />
     </div>
   );
 }

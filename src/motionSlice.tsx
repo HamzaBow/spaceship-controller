@@ -1,4 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { obstacleExists } from "./utils";
+
+export interface Obstacle {
+  x: number;
+  y: number;
+}
 
 export enum Direction {
   North="North",
@@ -12,13 +18,16 @@ export interface MotionState {
   x: number; // location of spaceship on x axis.
   y: number; // location of spaceship on y axis.
   direction: Direction; // direction that the spaceship is facing. 
+  obstacles: Obstacle[];
 }
+
 const initialState: MotionState = {
   gridHeight: 8,
   gridWidth: 8,
   x: 0,
   y: 0,
-  direction: Direction.North
+  direction: Direction.North,
+  obstacles: []
 }
 
 const modulo = (num: number, threshold: number): number => {
@@ -102,11 +111,30 @@ export const motionSlice = createSlice({
         default:
           throw new Error(`Rotation not accepted!`)
       }
+    },
+    putObstacles: (state) => {
+      state.obstacles = [];
+      //10% of total number of cell have obstacles
+      let ObsNumber = Math.floor(state.gridHeight * state.gridWidth * 0.1)
+      let x, y;
+      for(let i = 0; i < ObsNumber; i++) {
+        while(true) {
+          x = Math.floor(Math.random() * state.gridWidth)
+          y = Math.floor(Math.random() * state.gridHeight)
+          if (obstacleExists(state.obstacles, {x, y})) {
+            continue;
+          }
+          // obstacleLocation not in list of obstacles
+          // add obtacle to list
+          state.obstacles.push({x, y})
+          break;
+        }
+      }
     }
   }
 })
 
-export const { moveForward, moveBackward, rotateLeft, rotateRight } =
+export const { moveForward, moveBackward, rotateLeft, rotateRight, putObstacles } =
   motionSlice.actions;
 
 export default motionSlice.reducer;
