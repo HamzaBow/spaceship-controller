@@ -1,6 +1,6 @@
 # Spaceship Controller.
 
-This is a coding challenge. It is building an app that allows the user to control a spaceship on a grid.
+This is a coding challenge. It is about building an app that allows the user to control a spaceship on a grid.
 
 The app is built with React and Redux Toolkit.
 
