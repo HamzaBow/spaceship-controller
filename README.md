@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Spaceship Controller.
+
+This is a coding challenge. It is building an app that allows the user to control a spaceship on a grid.
+
+The app is built with React and Redux Toolkit.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
